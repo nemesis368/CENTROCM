@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
+
 class AgendaActivity : AppCompatActivity() {
     lateinit var dao: CitaDAO
     lateinit var adapter: AgendaAdapter
