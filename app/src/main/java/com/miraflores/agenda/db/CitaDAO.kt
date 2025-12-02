@@ -18,6 +18,7 @@ class CitaDAO(context: Context) : CrudInterface<Cita> {
         db.close()
         return id
     }
+    
 
     override fun obtenerTodos(): ArrayList<Cita> {
         val lista = ArrayList<Cita>()
