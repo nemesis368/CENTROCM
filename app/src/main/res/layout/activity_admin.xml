@@ -6,7 +6,8 @@
     android:gravity="center"
     android:background="@color/white"
     android:padding="30dp">
-
+    
+//ADMINISTRADOR
     <TextView
         android:text="ADMINISTRADOR"
         android:gravity="center"
