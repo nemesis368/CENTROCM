@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.miraflores.agenda.R
 import com.miraflores.agenda.model.Cita
 
+
 class AgendaAdapter(private var lista: List<Cita>) : RecyclerView.Adapter<AgendaAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
