@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/maroon_primary"
+    android:padding="30dp">
+
+    <TextView
+        android:text="CENTRO\nMIRAFLORES"
+        android:gravity="center"
+        android:textColor="@color/gold_accent"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:letterSpacing="0.1"
+        android:layout_marginBottom="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <!-- BOTÓN 1: AGENDAR CITA -->
+    <Button
+        android:id="@+id/btnAgenda"
+        android:text="AGENDAR CITA"
+        android:background="@drawable/bg_boton_gradiente"
+        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="25dp"/>
+
+    <!-- BOTÓN 2: ASISTENTE IA -->
+    <Button
+        android:id="@+id/btnIA"
+        android:text="ASISTENTE IA"
+        android:background="@drawable/bg_boton_gradiente"
+        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_marginBottom="25dp"/>
+
+    <!-- BOTÓN 3: UBICACIÓN -->
+    <Button
+        android:id="@+id/btnMapa"
+        android:text="UBICACIÓN"
+        android:background="@drawable/bg_boton_gradiente"
+        app:backgroundTint="@null"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"/>
+
+</LinearLayout>

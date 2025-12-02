@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_tarjeta_vino"
+    android:padding="15dp"
+    android:layout_marginBottom="10dp">
+
+    <TextView android:id="@+id/tvItemServicio" android:text="SERVICIO" android:textColor="@color/gold_accent" android:textStyle="bold" android:textSize="18sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tvItemPaciente" android:text="Paciente" android:textColor="@color/white" android:textSize="16sp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+    <TextView android:id="@+id/tvItemFecha" android:text="Fecha" android:textColor="#DDDDDD" android:textSize="14sp" android:layout_marginTop="5dp" android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+</LinearLayout>

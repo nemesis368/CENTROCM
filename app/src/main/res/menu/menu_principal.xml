@@ -1,0 +1,4 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/action_salir" android:title="Cerrar Sesión" />
+    <item android:id="@+id/action_acerca" android:title="Acerca de" />
+</menu>

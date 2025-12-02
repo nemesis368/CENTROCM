@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/maroon_primary"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="30dp"
+        android:gravity="center_horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Cuenta"
+            android:textColor="@color/gold_accent"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="40dp"/>
+
+        <EditText
+            android:id="@+id/etNombreReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_dorado"
+            android:hint="Nombre Completo"
+            android:inputType="textPersonName"
+            android:padding="15dp"
+            android:textColorHint="#5C0E27"
+            android:textColor="#5C0E27"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etTelefonoReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_dorado"
+            android:hint="Teléfono"
+            android:inputType="phone"
+            android:padding="15dp"
+            android:textColorHint="#5C0E27"
+            android:textColor="#5C0E27"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etCorreoReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_dorado"
+            android:hint="Correo Electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="15dp"
+            android:textColorHint="#5C0E27"
+            android:textColor="#5C0E27"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etUsuarioReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_dorado"
+            android:hint="Usuario (Nick)"
+            android:padding="15dp"
+            android:textColorHint="#5C0E27"
+            android:textColor="#5C0E27"
+            android:layout_marginBottom="20dp"/>
+
+        <EditText
+            android:id="@+id/etPassReg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_input_dorado"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="15dp"
+            android:textColorHint="#5C0E27"
+            android:textColor="#5C0E27"
+            android:layout_marginBottom="40dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="REGISTRARSE"
+            android:background="@drawable/bg_boton_gradiente"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+</ScrollView>
