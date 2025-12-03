@@ -1,13 +1,13 @@
 package com.miraflores.agenda.db
+
 import android.content.ContentValues
 import android.content.Context
-import com.miraflores.agenda.interfaces.CrudInterface
 import com.miraflores.agenda.model.Cita
 
-class CitaDAO(context: Context) : CrudInterface<Cita> {
+class CitaDAO(context: Context) {
     private val dbHelper = AdminSQLiteOpenHelper(context)
 
-    override fun insertar(obj: Cita): Long {
+    fun insertar(obj: Cita): Long {
         val db = dbHelper.writableDatabase
         val values = ContentValues().apply {
             put("servicio", obj.servicio)
@@ -18,26 +18,30 @@ class CitaDAO(context: Context) : CrudInterface<Cita> {
         db.close()
         return id
     }
-    
 
-    override fun obtenerTodos(): ArrayList<Cita> {
+    fun obtenerTodos(): ArrayList<Cita> {
         val lista = ArrayList<Cita>()
         val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT * FROM citas ORDER BY id DESC", null)
-        if (cursor.moveToFirst()) {
-            do {
-                lista.add(Cita(cursor.getInt(0), cursor.getString(1), cursor.getString(2), cursor.getString(3)))
-            } while (cursor.moveToNext())
+        try {
+            val cursor = db.rawQuery("SELECT * FROM citas ORDER BY id DESC", null)
+            if (cursor.moveToFirst()) {
+                do {
+                    lista.add(
+                        Cita(
+                            id = cursor.getInt(0),
+                            servicio = cursor.getString(1),
+                            paciente = cursor.getString(2),
+                            fecha = cursor.getString(3)
+                        )
+                    )
+                } while (cursor.moveToNext())
+            }
+            cursor.close()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        } finally {
+            db.close()
         }
-        cursor.close()
-        db.close()
         return lista
-    }
-
-    override fun eliminar(id: Int): Int {
-        val db = dbHelper.writableDatabase
-        val res = db.delete("citas", "id=?", arrayOf(id.toString()))
-        db.close()
-        return res
     }
 }

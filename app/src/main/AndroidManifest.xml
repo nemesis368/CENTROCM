@@ -34,5 +34,7 @@
         <activity android:name=".RegistroActivity" />
         <activity android:name=".AdminActivity" />
 
+        <activity android:name=".HistorialodoActivity" />
+
     </application>
 </manifest>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
     android:background="@color/white"
     android:padding="30dp">
-    
-//ADMINISTRADOR
+
     <TextView
         android:text="ADMINISTRADOR"
         android:gravity="center"
@@ -50,4 +50,17 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="70dp"/>
+
+    <!-- NUEVO: BOTÓN DE CERRAR SESIÓN (ROJO) -->
+    <TextView
+        android:id="@+id/btnCerrarSesionAdmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="#B71C1C"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"/>
+
 </LinearLayout>

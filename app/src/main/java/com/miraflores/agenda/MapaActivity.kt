@@ -1,44 +1,34 @@
 package com.miraflores.agenda
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.maps.CameraUpdateFactory
+import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.OnMapReadyCallback
+import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MarkerOptions
 
-class MainActivity : AppCompatActivity() {
+class MapaActivity : AppCompatActivity(), OnMapReadyCallback {
+
+    private lateinit var mMap: GoogleMap
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_mapa)
 
-        // --- BOTONES DEL MENÚ ---
+        // Inicializar el fragmento del mapa
+        val mapFragment = supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
+        mapFragment.getMapAsync(this)
+    }
 
-        // Botón 1: Agenda
-        findViewById<Button>(R.id.btnAgenda).setOnClickListener {
-            startActivity(Intent(this, AgendaActivity::class.java))
-        }
+    override fun onMapReady(googleMap: GoogleMap) {
+        mMap = googleMap
 
-        // Botón 2: Asistente IA
-        findViewById<Button>(R.id.btnIA).setOnClickListener {
-            startActivity(Intent(this, GeminiChatActivity::class.java))
-        }
+        // Coordenadas del Centro Miraflores (Ejemplo)
+        val ccm = LatLng(19.2616, -98.8953)
 
-        // Botón 3: Ubicación / Mapa
-        findViewById<Button>(R.id.btnMapa).setOnClickListener {
-            startActivity(Intent(this, MapaActivity::class.java))
-        }
-
-        // --- LÓGICA DE CERRAR SESIÓN ---
-        // Buscamos el texto que agregamos al final del diseño
-        val btnCerrarSesion = findViewById<TextView>(R.id.btnCerrarSesion)
-
-        btnCerrarSesion.setOnClickListener {
-            // 1. Creamos el viaje de regreso al Login
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-
-            // 2. Destruimos esta pantalla (Menú) para que no se pueda volver con "Atrás"
-            finish()
-        }
+        mMap.addMarker(MarkerOptions().position(ccm).title("Centro Miraflores"))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ccm, 15f))
     }
 }

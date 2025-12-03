@@ -19,7 +19,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
-    <!-- BOTÓN 1: AGENDAR CITA -->
     <Button
         android:id="@+id/btnAgenda"
         android:text="AGENDAR CITA"
@@ -32,7 +31,6 @@
         android:layout_height="70dp"
         android:layout_marginBottom="25dp"/>
 
-    <!-- BOTÓN 2: ASISTENTE IA -->
     <Button
         android:id="@+id/btnIA"
         android:text="ASISTENTE IA"
@@ -45,7 +43,6 @@
         android:layout_height="70dp"
         android:layout_marginBottom="25dp"/>
 
-    <!-- BOTÓN 3: UBICACIÓN -->
     <Button
         android:id="@+id/btnMapa"
         android:text="UBICACIÓN"
@@ -56,5 +53,16 @@
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="70dp"/>
+
+    <TextView
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cerrar Sesión"
+        android:textColor="#E0E0E0"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:padding="15dp"
+        android:layout_marginTop="40dp"/>
 
 </LinearLayout>

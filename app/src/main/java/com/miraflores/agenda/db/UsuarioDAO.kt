@@ -5,10 +5,10 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
-class UsuarioDAO(context: Context) : SQLiteOpenHelper(context, "AgendaDB", null, 1) {
+class UsuarioDAO(context: Context) : SQLiteOpenHelper(context, "usuarios_db", null, 1) {
 
     override fun onCreate(db: SQLiteDatabase) {
-        // AQUÍ ESTÁ LA CLAVE: Creamos la tabla con las 5 columnas necesarias
+        // Creamos la tabla con las 5 columnas que pide tu formulario
         val sql = """
             CREATE TABLE usuarios (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -27,7 +27,6 @@ class UsuarioDAO(context: Context) : SQLiteOpenHelper(context, "AgendaDB", null,
         onCreate(db)
     }
 
-    // Función para guardar TODOS los datos
     fun registrar(nombre: String, telefono: String, correo: String, usuario: String, pass: String): Boolean {
         val db = this.writableDatabase
         val values = ContentValues().apply {
@@ -38,10 +37,10 @@ class UsuarioDAO(context: Context) : SQLiteOpenHelper(context, "AgendaDB", null,
             put("password", pass)
         }
 
-        // Si devuelve -1 es que hubo error (probablemente usuario repetido)
-        val result = db.insert("usuarios", null, values)
+        // insert devuelve -1 si hay error
+        val resultado = db.insert("usuarios", null, values)
         db.close()
-        return result != -1L
+        return resultado != -1L
     }
 
     fun login(usuario: String, pass: String): Boolean {

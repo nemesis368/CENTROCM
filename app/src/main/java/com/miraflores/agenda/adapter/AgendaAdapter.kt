@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.miraflores.agenda.R
 import com.miraflores.agenda.model.Cita
 
-
 class AgendaAdapter(private var lista: List<Cita>) : RecyclerView.Adapter<AgendaAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -18,16 +17,18 @@ class AgendaAdapter(private var lista: List<Cita>) : RecyclerView.Adapter<Agenda
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        // Necesitamos crear el layout 'item_cita.xml' (ver abajo en layouts)
+        // Inflamos el diseño que acabamos de crear arriba
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_cita, parent, false)
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = lista[position]
-        holder.tvServicio.text = item.servicio
-        holder.tvPaciente.text = item.paciente
-        holder.tvFecha.text = item.fecha
+
+        // Asignamos los datos con un poco de formato para que se vea mejor
+        holder.tvServicio.text = item.servicio.uppercase() // Servicio en mayúsculas
+        holder.tvPaciente.text = "Paciente: ${item.paciente}"
+        holder.tvFecha.text = "Fecha: ${item.fecha}"
     }
 
     override fun getItemCount() = lista.size

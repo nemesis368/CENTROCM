@@ -14,39 +14,44 @@ class RegistroActivity : AppCompatActivity() {
 
         val dao = UsuarioDAO(this)
 
-        // Conectamos con los IDs que pusimos en el paso 2
-        val etNombre = findViewById<EditText>(R.id.etNombre)
-        val etTelefono = findViewById<EditText>(R.id.etTelefono)
-        val etCorreo = findViewById<EditText>(R.id.etCorreo)
-        val etUsuario = findViewById<EditText>(R.id.etUsuarioRegistro)
-        val etPass = findViewById<EditText>(R.id.etPassRegistro)
+        // --- AQUÍ ESTABA EL ERROR: AHORA USAMOS TUS IDs CORRECTOS DEL XML ---
+        val etNombre = findViewById<EditText>(R.id.etNombreReg)
+        val etTelefono = findViewById<EditText>(R.id.etTelefonoReg)
+        val etCorreo = findViewById<EditText>(R.id.etCorreoReg)
+        val etUsuario = findViewById<EditText>(R.id.etUsuarioReg)
+        val etPass = findViewById<EditText>(R.id.etPassReg)
+
         val btnRegistrar = findViewById<Button>(R.id.btnRegistrar)
 
+        // --- LÓGICA DEL BOTÓN ---
         btnRegistrar.setOnClickListener {
+            // 1. Obtenemos el texto de los campos
             val nombre = etNombre.text.toString().trim()
             val telefono = etTelefono.text.toString().trim()
             val correo = etCorreo.text.toString().trim()
             val usuario = etUsuario.text.toString().trim()
             val pass = etPass.text.toString().trim()
 
-            // Verificamos que no haya nada vacío
+            // 2. Validamos que no estén vacíos
             if (nombre.isEmpty() || telefono.isEmpty() || correo.isEmpty() || usuario.isEmpty() || pass.isEmpty()) {
                 Toast.makeText(this, "Falta llenar algún dato", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
             try {
-                // Guardamos en la base de datos
-                val exito = dao.registrar(nombre, telefono, correo, usuario, pass)
+                // 3. Guardamos en la Base de Datos
+                val guardado = dao.registrar(nombre, telefono, correo, usuario, pass)
 
-                if (exito) {
-                    Toast.makeText(this, "¡Registro Exitoso!", Toast.LENGTH_LONG).show()
-                    finish() // Cierra registro y vuelve al login
+                if (guardado) {
+                    Toast.makeText(this, "¡Cuenta creada exitosamente!", Toast.LENGTH_LONG).show()
+
+                    // 4. Cerramos esta pantalla para volver al Login automáticamente
+                    finish()
                 } else {
-                    Toast.makeText(this, "Ese usuario ya existe, prueba otro", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Error: El usuario ya existe o hubo un fallo.", Toast.LENGTH_LONG).show()
                 }
             } catch (e: Exception) {
-                Toast.makeText(this, "Error: ${e.message}", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Error crítico: ${e.message}", Toast.LENGTH_LONG).show()
             }
         }
     }
