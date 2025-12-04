@@ -2,9 +2,9 @@ package com.miraflores.agenda
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,31 +12,27 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         // Botón 1: Agenda
-        val btnAgenda = findViewById<Button>(R.id.btnAgenda)
+        val btnAgenda = findViewById<CardView>(R.id.btnAgenda)
         btnAgenda.setOnClickListener {
-            val intent = Intent(this, AgendaActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, AgendaActivity::class.java))
         }
 
-        // Botón 2: Asistente IA
-        val btnIA = findViewById<Button>(R.id.btnIA)
+        // Botón 2: IA Gemini
+        val btnIA = findViewById<CardView>(R.id.btnIA)
         btnIA.setOnClickListener {
-            val intent = Intent(this, GeminiChatActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, GeminiChatActivity::class.java))
         }
 
-        // Botón 3: Ubicación / Mapa
-        val btnMapa = findViewById<Button>(R.id.btnMapa)
+        // Botón 3: Mapa
+        val btnMapa = findViewById<CardView>(R.id.btnMapa)
         btnMapa.setOnClickListener {
-            val intent = Intent(this, MapaActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, MapaActivity::class.java))
         }
 
-        // Botón Cerrar Sesión (Es un TextView en el XML)
+        // Cerrar sesión
         val btnCerrar = findViewById<TextView>(R.id.btnCerrarSesion)
         btnCerrar.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, LoginActivity::class.java))
             finish()
         }
     }
